@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
 import { getAnalytics, isSupported } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
-import { addDoc, collection, getFirestore, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+import { addDoc, collection, doc, getDoc, getFirestore, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA8_dWWEnPoltWsgnLK8G15EH3s0Jgw5X8",
@@ -31,6 +31,8 @@ const submitPlanButton = document.getElementById("submit-plan-btn");
 const selectedPlanInput = document.getElementById("selected-plan");
 const selectedPlanLabel = document.getElementById("selected-plan-label");
 const openPlanButtons = document.querySelectorAll(".open-plan-dialog");
+const whatsappLinks = document.querySelectorAll("[data-whatsapp-link]");
+const fallbackWhatsappNumber = "8742947829";
 
 window.toggleFaq = toggleFaq;
 window.toggleMenu = toggleMenu;
@@ -45,6 +47,35 @@ function setFormStatus(message, state = "") {
   if (!formStatus) return;
   formStatus.textContent = message;
   formStatus.dataset.state = state;
+}
+
+function buildWhatsappUrl(number, message = "") {
+  const cleanedNumber = String(number || "").replace(/[^\d]/g, "");
+
+  if (!cleanedNumber) {
+    return "#";
+  }
+
+  const encodedMessage = message ? `?text=${encodeURIComponent(message)}` : "";
+  return `https://wa.me/${cleanedNumber}${encodedMessage}`;
+}
+
+function applyWhatsappLinks(number) {
+  whatsappLinks.forEach((link) => {
+    const message = link.dataset.whatsappMessage || "";
+    link.href = buildWhatsappUrl(number, message);
+  });
+}
+
+async function loadWhatsappConfig(db) {
+  try {
+    const contactDoc = await getDoc(doc(db, "siteConfig", "contact"));
+    const firebaseNumber = contactDoc.exists() ? String(contactDoc.data().whatsappNumber || "").trim() : "";
+    applyWhatsappLinks(firebaseNumber || fallbackWhatsappNumber);
+  } catch (error) {
+    console.error("Failed to load WhatsApp config from Firebase:", error);
+    applyWhatsappLinks(fallbackWhatsappNumber);
+  }
 }
 
 function openPlanDialog(planName) {
@@ -73,6 +104,8 @@ async function initFirebase() {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const analyticsSupported = await isSupported();
+
+    await loadWhatsappConfig(db);
 
     if (analyticsSupported) {
       getAnalytics(app);
