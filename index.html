@@ -4,268 +4,324 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rudev Corporation - College Project Experts</title>
+  <title>CODE SMITHS - College Project Experts</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <nav>
-    <div class="logo">CODE <span>SMITHS</span></div>
+    <a class="logo" href="#top">CODE <span>SMITHS</span></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#how">How it works</a></li>
+      <li><a href="#how">Process</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn-nav" href="https://wa.me/919289492137" target="_blank" rel="noreferrer">Get started</a>
-    <div class="hamburger" onclick="toggleMenu()">
+    <a class="btn-nav" href="https://wa.me/919289492137" target="_blank" rel="noreferrer">Start your project</a>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" role="button" tabindex="0">
       <span></span><span></span><span></span>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-tag">Trusted by 100+ students across India</div>
-    <div class="firebase-status" id="firebase-status" aria-live="polite">Checking Firebase connection...</div>
-    <h1>Your college project,<br /><em>done professionally.</em></h1>
-    <p>Complete project packages for BCA and BTech students - website, source code, documentation and PPT.
-      Submission-ready in 3-5 days.</p>
-    <div class="hero-btns">
-      <a class="btn-wa" href="https://wa.me/919289492137" target="_blank" rel="noreferrer">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <div class="hero-tag">Submission-ready builds for BCA and BTech students</div>
+          <h1>Project delivery that looks polished, <em>feels credible,</em> and arrives on time.</h1>
+          <div class="hero-offer">
+            <span class="hero-offer-label">Starter Offer</span>
+            <span class="hero-offer-copy">Make your project with documentation at</span>
+            <strong>Rs 599</strong>
+          </div>
+          <p>We turn your topic into a clean website, working source code, documentation, and presentation files that are ready for guide review and viva day.</p>
+          <div class="hero-btns">
+            <a class="btn-wa" href="https://wa.me/919289492137" target="_blank" rel="noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Chat on WhatsApp
+            </a>
+            <a class="btn-outline" href="#pricing">See pricing</a>
+          </div>
+          <div class="trust-badges">
+            <div class="badge">1 day delivery</div>
+            <div class="badge">Original work</div>
+            <div class="badge">Documentation included</div>
+            <div class="badge">Support after delivery</div>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-card hero-card-main">
+            <div class="eyebrow">What you get</div>
+            <h2>One team for the whole submission package</h2>
+            <ul class="hero-list">
+              <li><span>01</span> Responsive project website</li>
+              <li><span>02</span> Clean code with your required stack</li>
+              <li><span>03</span> Documentation (project file)</li>
+              <li><span>04</span> Report, diagrams, and references</li>
+              <li><span>05</span> PPT deck and viva support notes</li>
+            </ul>
+          </div>
+          <div class="hero-card hero-card-accent">
+            <div class="mini-stat">
+              <strong>100+</strong>
+              <span>students served</span>
+            </div>
+            <div class="mini-stat">
+              <strong>24-48h</strong>
+              <span>rush option available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-box">
+          <strong>Fast turnaround</strong>
+          <span>Deadlines handled without the last-minute panic.</span>
+        </div>
+        <div class="stat-box">
+          <strong>Presentation-ready</strong>
+          <span>Clean visuals and files that look credible in front of faculty.</span>
+        </div>
+        <div class="stat-box">
+          <strong>Built to your brief</strong>
+          <span>Topic, tech stack, and format aligned to your college requirements.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-label">What we offer</div>
+      <div class="section-title">Everything needed for a confident submission</div>
+      <div class="section-sub">A focused package instead of juggling freelancers, classmates, and rushed edits.</div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">Web</div>
+          <h3>Project website</h3>
+          <p>Modern, responsive interfaces with the right screens, flows, and polish for demos and final submission.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">Code</div>
+          <h3>Source code</h3>
+          <p>Readable implementation in your requested technology, organized so it is easier to explain during viva.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">Docs</div>
+          <h3>Documentation</h3>
+          <p>Abstract, modules, diagrams, database details, and structured report content prepared in a proper format.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">PPT</div>
+          <h3>Presentation deck</h3>
+          <p>Slides that are concise, visual, and professional enough to support your explanation instead of distracting from it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="section-label">Pricing</div>
+      <div class="section-title">Simple packages with clear deliverables</div>
+      <div class="section-sub">Pay 50% in advance and the rest after delivery review.</div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-tier">Basic</div>
+          <div class="price-amount"><sup>Rs</sup>399</div>
+          <div class="price-note">Best for simple website-based submissions</div>
+          <hr class="price-divider" />
+          <ul class="price-features">
+            <li><span class="check-icon">&#10003;</span> Project website</li>
+            <li><span class="check-icon">&#10003;</span> Source code</li>
+            <li><span class="check-icon">&#10003;</span> 1 day delivery</li>
+            <li><span class="check-icon">&#10003;</span> Multiple revisions</li>
+          </ul>
+          <button class="price-btn open-plan-dialog" type="button" data-plan="Basic">Order Basic</button>
+        </div>
+
+        <div class="price-card popular">
+          <div class="popular-tag">Most popular</div>
+          <div class="price-tier">Standard</div>
+          <div class="price-amount"><sup>Rs</sup>599</div>
+          <div class="price-note">The balanced option for most students</div>
+          <hr class="price-divider" />
+          <ul class="price-features">
+            <li><span class="check-icon">&#10003;</span> Project website</li>
+            <li><span class="check-icon">&#10003;</span> Source code</li>
+            <li><span class="check-icon">&#10003;</span> Full documentation</li>
+            <li><span class="check-icon">&#10003;</span> 1 day delivery</li>
+            <li><span class="check-icon">&#10003;</span> Multiple revisions</li>
+          </ul>
+          <button class="price-btn open-plan-dialog" type="button" data-plan="Standard">Order Standard</button>
+        </div>
+
+        <div class="price-card">
+          <div class="price-tier">Full Package</div>
+          <div class="price-amount"><sup>Rs</sup>999</div>
+          <div class="price-note">For students who want the full ready-to-submit set</div>
+          <hr class="price-divider" />
+          <ul class="price-features">
+            <li><span class="check-icon">&#10003;</span> Everything in Standard</li>
+            <li><span class="check-icon">&#10003;</span> PPT presentation</li>
+            <li><span class="check-icon">&#10003;</span> Viva prep notes</li>
+            <li><span class="check-icon">&#10003;</span> Priority support</li>
+            <li><span class="check-icon">&#10003;</span> Multiple revisions</li>
+          </ul>
+          <a class="price-btn" href="https://wa.me/919289492137?text=Hi,%20I%20want%20the%20Full%20Package" target="_blank"
+            rel="noreferrer">Order Full Package</a>
+        </div>
+
+        <div class="price-card support-plan">
+          <div class="price-tier">Fix My Project</div>
+          <div class="price-amount"><sup>Rs</sup>199</div>
+          <div class="price-note">Already made your own project but stuck on errors, missing features, or final fixes?</div>
+          <hr class="price-divider" />
+          <ul class="price-features">
+            <li><span class="check-icon">&#10003;</span> Bug fixing and small changes</li>
+            <li><span class="check-icon">&#10003;</span> Help with incomplete parts</li>
+            <li><span class="check-icon">&#10003;</span> Quick support for your own project file</li>
+            <li><span class="check-icon">&#10003;</span> Best for students who need final correction</li>
+          </ul>
+          <a class="price-btn" href="https://wa.me/919289492137?text=Hi,%20I%20need%20help%20fixing%20my%20own%20project%20file%20for%20Rs%20199" target="_blank"
+            rel="noreferrer">Get Fix Support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="section-label">Process</div>
+      <div class="section-title">A straightforward workflow from brief to delivery</div>
+      <div class="section-sub">No confusion, no messy handoff, and no guessing what happens next.</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Share your topic</h3>
+          <p>Send your project title, preferred technology, required modules, and deadline on WhatsApp.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Confirm scope</h3>
+          <p>We lock in the package, timeline, and expected files so the delivery matches your submission needs.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>We build everything</h3>
+          <p>The website, codebase, documentation, and slides are prepared as one cohesive package.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Review and submit</h3>
+          <p>You receive the files, request any included revisions, and submit with more confidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="reviews">
+      <div class="section-label">Student reviews</div>
+      <div class="section-title">Results that feel dependable under deadline pressure</div>
+      <div class="section-sub">A few examples of the kind of feedback students share after delivery.</div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"My final year project looked much more polished than I expected. The documentation was easy to present and my guide approved it quickly."</p>
+          <div class="reviewer">
+            <div class="avatar">RK</div>
+            <div>
+              <div class="reviewer-name">Rahul K.</div>
+              <div class="reviewer-info">BTech CSE, Delhi</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"The website felt premium, not like a rushed student template. Everything came together on time and the PPT was actually useful in viva."</p>
+          <div class="reviewer">
+            <div class="avatar">PS</div>
+            <div>
+              <div class="reviewer-name">Priya S.</div>
+              <div class="reviewer-info">BCA 3rd Year, Noida</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+          <p>"Clean code, fast communication, and less stress before submission. The full package saved me a lot of last-minute effort."</p>
+          <div class="reviewer">
+            <div class="avatar">AV</div>
+            <div>
+              <div class="reviewer-name">Amit V.</div>
+              <div class="reviewer-info">BTech IT, Gurgaon</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="section-label">FAQ</div>
+      <div class="section-title">Common questions before you order</div>
+      <div class="section-sub">A quick overview of the details students usually ask about first.</div>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Will my project be unique?
+            <span>+</span>
+          </div>
+          <div class="faq-a">Yes. Each project is prepared around your specific topic, scope, and requirements instead of being copied from another student.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Which technologies do you support?
+            <span>+</span>
+          </div>
+          <div class="faq-a">We can work with common stacks like HTML, CSS, JavaScript, PHP, Python, Java, React, Node.js, MySQL, and related tools depending on your college brief.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What if I need changes after delivery?
+            <span>+</span>
+          </div>
+          <div class="faq-a">Every package includes revision support. The exact number depends on your plan, and urgent fixes can be discussed if your faculty asks for last-minute changes.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            How do payments work?
+            <span>+</span>
+          </div>
+          <div class="faq-a">You pay 50% upfront to confirm the order and the remaining amount after delivery review. UPI payments are supported.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Can you handle urgent deadlines?
+            <span>+</span>
+          </div>
+          <div class="faq-a">Yes, in many cases a rush delivery can be arranged within 24 to 48 hours depending on the project scope. Message early so we can confirm feasibility.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to stop stressing about your project submission?</h2>
+      <p>Send your topic today and get a clear response on scope, timeline, and the best package for it.</p>
+      <a class="btn-wa cta-button" href="https://wa.me/919289492137" target="_blank" rel="noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
           <path
             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        Chat on WhatsApp
+        Get started on WhatsApp
       </a>
-      <a class="btn-outline" href="#pricing">View pricing</a>
-    </div>
-    <div class="trust-badges">
-      <div class="badge">Fast delivery</div>
-      <div class="badge">Plagiarism-free</div>
-      <div class="badge">All technologies</div>
-      <div class="badge">24/7 support</div>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="section-label">What we offer</div>
-    <div class="section-title">Everything in one package</div>
-    <div class="section-sub">No need to run around - we handle it all.</div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🌐</div>
-        <h3>Project website</h3>
-        <p>Clean, responsive website for your project with proper frontend and backend as needed. Works on all devices.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">💻</div>
-        <h3>Source code</h3>
-        <p>Clean, well-commented code in your required tech - PHP, Python, Java, Node.js, React, and more.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📄</div>
-        <h3>Documentation</h3>
-        <p>Full project report with abstract, system design, ER diagrams, DFDs, and references in proper format.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📊</div>
-        <h3>Presentation (PPT)</h3>
-        <p>Professional slides ready for your viva - clean, structured and designed to impress your guide.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="pricing" id="pricing">
-    <div class="section-label">Pricing</div>
-    <div class="section-title">Simple, honest pricing</div>
-    <div class="section-sub">No hidden charges. Pay 50% advance, rest on delivery.</div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-tier">Basic</div>
-        <div class="price-amount"><sup>Rs</sup>399</div>
-        <div class="price-note">one-time - UPI accepted</div>
-        <hr class="price-divider" />
-        <ul class="price-features">
-          <li><span class="check-icon">✓</span> Project website</li>
-          <li><span class="check-icon">✓</span> Source code</li>
-          <li><span class="check-icon">✓</span> 3-5 day delivery</li>
-          <li><span class="check-icon">✓</span> 1 revision</li>
-        </ul>
-        <button class="price-btn open-plan-dialog" type="button" data-plan="Basic">Order Basic</button>
-      </div>
-      <div class="price-card popular">
-        <div class="popular-tag">Most popular</div>
-        <div class="price-tier">Standard</div>
-        <div class="price-amount"><sup>Rs</sup>499</div>
-        <div class="price-note">one-time - UPI accepted</div>
-        <hr class="price-divider" />
-        <ul class="price-features">
-          <li><span class="check-icon">✓</span> Project website</li>
-          <li><span class="check-icon">✓</span> Source code</li>
-          <li><span class="check-icon">✓</span> Full documentation</li>
-          <li><span class="check-icon">✓</span> 3-5 day delivery</li>
-          <li><span class="check-icon">✓</span> 2 revisions</li>
-        </ul>
-        <button class="price-btn open-plan-dialog" type="button" data-plan="Standard">Order Standard</button>
-      </div>
-      <div class="price-card">
-        <div class="price-tier">Full Package</div>
-        <div class="price-amount"><sup>Rs</sup>1,499</div>
-        <div class="price-note">one-time - UPI accepted</div>
-        <hr class="price-divider" />
-        <ul class="price-features">
-          <li><span class="check-icon">✓</span> Everything in Standard</li>
-          <li><span class="check-icon">✓</span> PPT presentation</li>
-          <li><span class="check-icon">✓</span> Viva prep notes</li>
-          <li><span class="check-icon">✓</span> Unlimited revisions</li>
-          <li><span class="check-icon">✓</span> Priority support</li>
-        </ul>
-        <a class="price-btn" href="https://wa.me/919289492137?text=Hi,%20I%20want%20the%20Full%20Package"
-          target="_blank" rel="noreferrer">Order Full Package</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="how" id="how">
-    <div class="section-label">Process</div>
-    <div class="section-title">How it works</div>
-    <div class="section-sub">Order in 2 minutes, submit on time.</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Send your topic</h3>
-        <p>WhatsApp us your project topic, required technology, and submission deadline.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Confirm and pay</h3>
-        <p>We confirm scope and timeline. Pay 50% advance via UPI - simple and fast.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>We build it</h3>
-        <p>Our team builds your complete project - website, code, docs and PPT as per your package.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>You submit</h3>
-        <p>Receive all files in 3-5 days. Review, request changes, pay balance and submit.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonials" id="reviews">
-    <div class="section-label">Student reviews</div>
-    <div class="section-title">What students say</div>
-    <div class="section-sub">Real feedback from real students across India.</div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>"Got my complete BTech final year project in 4 days. The documentation was perfect and my guide approved it
-          first shot. Totally worth it."</p>
-        <div class="reviewer">
-          <div class="avatar">RK</div>
-          <div>
-            <div class="reviewer-name">Rahul K.</div>
-            <div class="reviewer-info">BTech CSE, Delhi</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>"Submitted 2 days before deadline with zero tension. The website looked super professional. My whole batch
-          was asking me where I got it done!"</p>
-        <div class="reviewer">
-          <div class="avatar">PS</div>
-          <div>
-            <div class="reviewer-name">Priya S.</div>
-            <div class="reviewer-info">BCA 3rd Year, Noida</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★☆</div>
-        <p>"Fast delivery and clean code. The PPT was presentable and my viva went smoothly. Will definitely order again
-          next semester."</p>
-        <div class="reviewer">
-          <div class="avatar">AV</div>
-          <div>
-            <div class="reviewer-name">Amit V.</div>
-            <div class="reviewer-info">BTech IT, Gurgaon</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="faq-section" id="faq">
-    <div class="section-label">FAQ</div>
-    <div class="section-title">Common questions</div>
-    <div class="section-sub">Everything you need to know before ordering.</div>
-    <div class="faq">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Will my project be unique or copy-pasted?
-          <span>+</span>
-        </div>
-        <div class="faq-a">Every project we build is made from scratch based on your specific topic. We never reuse or
-          copy from other students' projects.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Which technologies do you work with?
-          <span>+</span>
-        </div>
-        <div class="faq-a">We work with PHP, Python (Django/Flask), Java, Node.js, React, HTML/CSS/JS, MySQL, MongoDB
-          and more. Just tell us what your college requires.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          What if I need changes after delivery?
-          <span>+</span>
-        </div>
-        <div class="faq-a">Basic plan includes 1 revision, Standard includes 2, and Full Package includes unlimited
-          revisions. We make sure you're 100% satisfied before final delivery.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          How do I pay? Is it safe?
-          <span>+</span>
-        </div>
-        <div class="faq-a">We accept all UPI payments (GPay, PhonePe, Paytm). You pay 50% advance and the remaining 50%
-          after you receive and approve the project.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          What if my submission date is very close?
-          <span>+</span>
-        </div>
-        <div class="faq-a">Message us on WhatsApp immediately. We handle urgent orders and can often deliver in 24-48
-          hours for an additional rush fee. Don't panic - just reach out!</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <h2>Ready to get your project done?</h2>
-    <p>Message us right now - we reply within 1 hour, 7 days a week.</p>
-    <a class="btn-wa cta-button" href="https://wa.me/919289492137" target="_blank" rel="noreferrer">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-        <path
-          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-      </svg>
-      Get started on WhatsApp
-    </a>
-    <div class="cta-note">No advance payment needed to inquire. Just say hi!</div>
-  </section>
+      <div class="cta-note">No payment required to ask questions or discuss your project first.</div>
+    </section>
+  </main>
 
   <footer>
-    <div class="footer-logo">Rudev <span>Corporation</span></div>
-    <p>&copy; 2025 Rudev Corporation - Made for BCA and BTech students</p>
+    <div class="footer-logo">CODE <span>SMITHS</span></div>
+    <p>&copy; 2026 CODE SMITHS. Made for BCA and BTech students.</p>
     <ul class="footer-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -315,8 +371,7 @@
 
         <label class="form-field">
           <span>Extra details</span>
-          <textarea name="notes" rows="4"
-            placeholder="Technology, college format, documentation needs, etc."></textarea>
+          <textarea name="notes" rows="4" placeholder="Technology, college format, documentation needs, etc."></textarea>
         </label>
 
         <div class="form-status" id="form-status" aria-live="polite"></div>
