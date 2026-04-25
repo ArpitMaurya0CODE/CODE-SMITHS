@@ -196,11 +196,49 @@ section {
   color: var(--accent-deep);
 }
 
-.firebase-status {
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-top: 1rem;
+}
+
+.firebase-status {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--ink-700);
+}
+
+.visit-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 249, 0.72);
+  backdrop-filter: blur(10px);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-800);
+}
+
+.visit-counter[data-state="success"] {
+  background: rgba(38, 115, 91, 0.1);
+  color: var(--green);
+  border-color: rgba(38, 115, 91, 0.18);
+}
+
+.visit-counter[data-state="warning"] {
+  background: rgba(211, 155, 43, 0.14);
+  color: #8b5e00;
+  border-color: rgba(211, 155, 43, 0.22);
+}
+
+.visit-counter[data-state="error"] {
+  background: rgba(183, 49, 49, 0.1);
+  color: #992e2e;
+  border-color: rgba(183, 49, 49, 0.18);
 }
 
 .firebase-status[data-state="success"] {

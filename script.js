@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
 import { getAnalytics, isSupported } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
-import { addDoc, collection, doc, getDoc, getFirestore, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+import { addDoc, collection, doc, getDoc, getFirestore, increment, runTransaction, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA8_dWWEnPoltWsgnLK8G15EH3s0Jgw5X8",
@@ -23,6 +23,8 @@ function toggleMenu() {
 }
 
 const statusElement = document.getElementById("firebase-status");
+const visitCounterElement = document.getElementById("visit-counter");
+const uniqueReachCounterElement = document.getElementById("unique-reach-counter");
 const dialogBackdrop = document.getElementById("plan-dialog-backdrop");
 const closeDialogButton = document.getElementById("close-plan-dialog");
 const planForm = document.getElementById("plan-form");
@@ -33,6 +35,7 @@ const selectedPlanLabel = document.getElementById("selected-plan-label");
 const openPlanButtons = document.querySelectorAll(".open-plan-dialog");
 const whatsappLinks = document.querySelectorAll("[data-whatsapp-link]");
 const fallbackWhatsappNumber = "8742947829";
+const deviceIdStorageKey = "code-smiths-device-id";
 
 window.toggleFaq = toggleFaq;
 window.toggleMenu = toggleMenu;
@@ -47,6 +50,38 @@ function setFormStatus(message, state = "") {
   if (!formStatus) return;
   formStatus.textContent = message;
   formStatus.dataset.state = state;
+}
+
+function setVisitCounter(message, state = "") {
+  if (!visitCounterElement) return;
+  visitCounterElement.textContent = message;
+  visitCounterElement.dataset.state = state;
+}
+
+function setUniqueReachCounter(message, state = "") {
+  if (!uniqueReachCounterElement) return;
+  uniqueReachCounterElement.textContent = message;
+  uniqueReachCounterElement.dataset.state = state;
+}
+
+function createDeviceId() {
+  if (window.crypto?.randomUUID) {
+    return window.crypto.randomUUID();
+  }
+
+  return `device-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+function getDeviceId() {
+  const existingDeviceId = localStorage.getItem(deviceIdStorageKey);
+
+  if (existingDeviceId) {
+    return existingDeviceId;
+  }
+
+  const nextDeviceId = createDeviceId();
+  localStorage.setItem(deviceIdStorageKey, nextDeviceId);
+  return nextDeviceId;
 }
 
 function buildWhatsappUrl(number, message = "") {
@@ -78,6 +113,57 @@ async function loadWhatsappConfig(db) {
   }
 }
 
+async function trackVisit(db) {
+  const visitsRef = doc(db, "siteStats", "traffic");
+  const deviceId = getDeviceId();
+  const deviceRef = doc(collection(visitsRef, "devices"), deviceId);
+
+  const stats = await runTransaction(db, async (transaction) => {
+    const visitsSnapshot = await transaction.get(visitsRef);
+    const deviceSnapshot = await transaction.get(deviceRef);
+    const currentVisits = visitsSnapshot.exists() ? Number(visitsSnapshot.data().totalVisits || 0) : 0;
+    const nextVisits = currentVisits + 1;
+    const currentUniqueReach = visitsSnapshot.exists() ? Number(visitsSnapshot.data().uniqueReach || 0) : 0;
+    const isNewDevice = !deviceSnapshot.exists();
+    const nextUniqueReach = isNewDevice ? currentUniqueReach + 1 : currentUniqueReach;
+
+    if (visitsSnapshot.exists()) {
+      transaction.update(visitsRef, {
+        totalVisits: increment(1),
+        uniqueReach: isNewDevice ? increment(1) : currentUniqueReach,
+        updatedAt: serverTimestamp()
+      });
+    } else {
+      transaction.set(visitsRef, {
+        totalVisits: 1,
+        uniqueReach: 1,
+        updatedAt: serverTimestamp()
+      });
+    }
+
+    if (deviceSnapshot.exists()) {
+      transaction.update(deviceRef, {
+        visits: increment(1),
+        lastSeenAt: serverTimestamp()
+      });
+    } else {
+      transaction.set(deviceRef, {
+        visits: 1,
+        firstSeenAt: serverTimestamp(),
+        lastSeenAt: serverTimestamp()
+      });
+    }
+
+    return {
+      totalVisits: nextVisits,
+      uniqueReach: nextUniqueReach
+    };
+  });
+
+  setVisitCounter(`Visits: ${stats.totalVisits}`, "success");
+  setUniqueReachCounter(`Unique reach: ${stats.uniqueReach}`, "success");
+}
+
 function openPlanDialog(planName) {
   if (!dialogBackdrop || !selectedPlanInput || !selectedPlanLabel) return;
 
@@ -106,6 +192,7 @@ async function initFirebase() {
     const analyticsSupported = await isSupported();
 
     await loadWhatsappConfig(db);
+    await trackVisit(db);
 
     if (analyticsSupported) {
       getAnalytics(app);
@@ -179,6 +266,8 @@ async function initFirebase() {
   } catch (error) {
     console.error("Firebase initialization failed:", error);
     setFirebaseStatus("Firebase connection failed. Check the browser console for details.", "error");
+    setVisitCounter("Visits unavailable", "error");
+    setUniqueReachCounter("Unique reach unavailable", "error");
     setFormStatus("Firebase is not ready yet, so form submissions are unavailable.", "error");
   }
 }
